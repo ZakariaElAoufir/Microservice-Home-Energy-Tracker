@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.leetjourney.device_service.dto.DeviceDto;
 import com.leetjourney.device_service.entity.Device;
+import com.leetjourney.device_service.exception.DeviceNotFoundException;
 import com.leetjourney.device_service.repository.DeviceRepository;
 
 @Service 
@@ -17,7 +18,7 @@ public class DeviceService {
     }
 
     public DeviceDto getDeviceById(Long id){
-        Device device = deviceRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Device not Found!"));
+        Device device = deviceRepository.findById(id).orElseThrow(()-> new DeviceNotFoundException("Device not Found!"));
         return mapToDto(device);
     }
 
@@ -28,7 +29,7 @@ public class DeviceService {
     }
 
     public DeviceDto updateDeviceById(Long id, DeviceDto deviceDto){
-        Device found = deviceRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Device not found!"));
+        Device found = deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException("Device not found!"));
         found.setName(deviceDto.getName());
         found.setLocation(deviceDto.getLocation());
         found.setType(deviceDto.getType());
@@ -40,7 +41,7 @@ public class DeviceService {
     }
 
     public void deleteDeviceById(Long id){
-        Device found = deviceRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Device not found!"));
+        Device found = deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException("Device not found!"));
         deviceRepository.delete(found);
     }
 
@@ -59,7 +60,7 @@ public class DeviceService {
             // 3. Retourne le DTO (c'est ce que .map() attend)
             return mapToDto(saved);
         })
-        .orElseThrow(() -> new RuntimeException("Device not found"));
+        .orElseThrow(() -> new DeviceNotFoundException("Device not found"));
     }
 
     private DeviceDto mapToDto(Device device) {

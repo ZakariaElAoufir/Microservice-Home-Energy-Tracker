@@ -36,7 +36,6 @@ public class UserService {
                                     .orElseThrow(() -> new IllegalArgumentException("User not found"));
         
         user.setName(userDto.getName());
-        user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
         user.setEmail(userDto.getEmail());
         user.setAddress(userDto.getAddress());
