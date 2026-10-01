@@ -1,12 +1,18 @@
 package com.zakariadev.kafka.event;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Builder 
-public record AlertingEvent(
-    Long userId,
-    String message,
-    double threshold,
-    double energyConsumed,
-    String email
-) {}
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+public class AlertingEvent{
+    private Long userId;
+    private String message;
+    private double threshold;
+    private double energyConsumed;
+    private String email;
+}
