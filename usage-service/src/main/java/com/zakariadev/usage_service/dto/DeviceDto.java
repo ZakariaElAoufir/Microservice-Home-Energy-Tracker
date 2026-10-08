@@ -12,7 +12,9 @@ public record DeviceDto(
 
     String location,
 
-    Long userId
+    Long userId,
+
+    Double energyConsumed
 ) {
 
 }

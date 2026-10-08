@@ -19,8 +19,8 @@ public class InsightController {
     }
 
     @GetMapping("/saving-tips/{userId}")
-    public ResponseEntity<InsightDto> getSavingTips(@PathVariable Long userId){
-        InsightDto insight = insightService.getSavingTips(userId);
+    public ResponseEntity<InsightDto> getSavingsTips(@PathVariable Long userId){
+        InsightDto insight = insightService.getSavingsTips(userId);
         return ResponseEntity.ok(insight);
     }
 

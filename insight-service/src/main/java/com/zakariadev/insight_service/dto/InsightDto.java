@@ -6,7 +6,7 @@ import lombok.Builder;
 public record InsightDto(
     Long userId,
     String tips,
-    double EnergyUsage
+    double energyUsage
 ) {
 
 }
