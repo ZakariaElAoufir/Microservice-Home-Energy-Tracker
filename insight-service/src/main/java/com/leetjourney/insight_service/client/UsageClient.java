@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.leetjourney.insight_service.dto.UsageDto;
+
 @Component 
 public class UsageClient {
     private final RestTemplate restTemplate;
@@ -25,5 +27,7 @@ public class UsageClient {
         ResponseEntity<UsageDto> response = restTemplate.getForEntity(url, UsageDto.class);
         return response.getBody();
     }
+
+    
     
 }

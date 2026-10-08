@@ -1,20 +1,14 @@
-package com.leetjourney.usage_service.dto;
+package com.leetjourney.insight_service.dto;
 
 import lombok.Builder;
 
-@Builder
+@Builder 
 public record DeviceDto(
     Long id,
-
     String name,
-
     String type,
-
     String location,
-
-    Long userId,
-
-    Double energyConsumed
+    double energyConsumed
 ) {
 
 }

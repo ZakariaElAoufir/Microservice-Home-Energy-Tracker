@@ -1,5 +1,7 @@
 package com.leetjourney.device_service.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,5 +54,11 @@ public class DeviceController {
     public ResponseEntity<Void> DeleteDevice(@PathVariable Long id){
         deviceService.deleteDeviceById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<DeviceDto>> getAllDevicesByUserId(@PathVariable Long userId){
+        List<DeviceDto> deviceDtos = deviceService.getAllDevicesByUserId(userId);
+        return ResponseEntity.ok(deviceDtos);
     }
 }

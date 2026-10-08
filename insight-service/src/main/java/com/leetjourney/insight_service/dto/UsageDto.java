@@ -1,12 +1,13 @@
 package com.leetjourney.insight_service.dto;
 
+import java.util.List;
+
 import lombok.Builder;
 
 @Builder
-public record InsightDto(
+public record UsageDto(
     Long userId,
-    String tips,
-    double energyUsage
+    List<DeviceDto> devices
 ) {
 
 }
